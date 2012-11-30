@@ -1,0 +1,42 @@
+[core]
+  excludesfile = ~/.osx_settings/.global_gitignore
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[alias]
+  co = checkout
+  st = status
+  ci = commit
+  up = pull
+  br = branch
+  df = diff
+  lg = log -p
+  aa = add --all
+  unstage = reset HEAD
+  new = ls-files --others --exclude-standard
+  added = diff --cached --name-only
+  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  plre = pull --rebase
+  ff = merge --ff-only
+  newauthor = commit --amend --reset-author -C HEAD
+  poes = push
+  l = "!source ~/.githelpers && pretty_git_log"
+  la = !git l --all
+  hp = "!source ~/.githelpers && show_git_head"
+  wtf = "!git commit -m \"$(curl -s whatthecommit.com/index.txt)\""
+  scoreboard = "!git log | grep '^Author' | sort | uniq -ci | sort -r"
+[color]
+  ui = true
+  diff = auto
+  status = auto
+  branch = auto
+[help]
+  autocorrect = 1
+[diff]
+  renames = copies
+[diff "ruby"]
+  funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
+[push]
+  default = upstream
+[branch]
+  autosetuprebase = always
+[http]
+  postBuffer = 100m
