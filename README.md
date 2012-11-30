@@ -63,6 +63,8 @@ In the iTerm2 general settings, check `Load preferences from a user-defined fold
 
 If you have trouble reading the colors, enable `Use bright colors for bold text` in Terminal. Don't forget to select the theme included in the iTerm2 directory.
 
+## Other settings
+
 ### Homebrew
 
 Here's what I install on a clean OSX:
