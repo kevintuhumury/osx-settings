@@ -1,0 +1,9 @@
+# Properly credit developers in Git when Pair Progamming.
+hitch() {
+  command hitch "$@"
+  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+}
+alias unhitch="hitch -u"
+
+# Persist information of the Pair Programmers between terminal instances.
+hitch
