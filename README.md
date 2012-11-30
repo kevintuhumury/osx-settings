@@ -20,7 +20,7 @@ Run the following to install the OSX settings:
 
 The installation will create a backup of a previous version and symlinks the available dot files.
 
-## Configure Git
+### Configure Git
 
 Run the following to configure Git:
 
