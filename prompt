@@ -117,7 +117,7 @@ function branch {
   if clean; then
     append $green
   else
-    append $yellow
+    append $red
   fi
   append $branch
 }
