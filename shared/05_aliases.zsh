@@ -14,7 +14,7 @@ alias t2000="tail -n 2000"
 alias m="mvim --remote-silent"
 
 # Grep from the history
-alias h?="history | grep "
+alias hg="history | grep "
 
 # Fast switching to folders.
 alias dls="cd ~/Downloads"
