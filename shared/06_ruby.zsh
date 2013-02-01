@@ -18,7 +18,7 @@ alias rds="rake db:seed"
 alias cov="open coverage/index.html"
 
 # Cucumber shortcuts (Rake is slow).
-alias c="bundle exec ./script/cucumber -r features"
+alias c="cucumber -r features"
 alias wip="c --profile wip"
 
 # Time RSpec and use document format.
