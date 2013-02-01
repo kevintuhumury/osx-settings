@@ -27,6 +27,9 @@ alias specdoc="time rspec -fd"
 # Restart Passenger.
 alias rr="touch tmp/restart.txt"
 
+# I hate having to type bundle exec.
+alias be="bundle exec"
+
 # I love mvim.
 export BUNDLER_EDITOR="mvim"
 export GEMEDITOR="mvim"
