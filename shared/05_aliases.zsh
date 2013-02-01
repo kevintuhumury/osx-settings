@@ -31,6 +31,9 @@ alias battery="ioreg -w0 -l | grep Capacity | cut -d ' ' -f 17-50"
 # Start tmux in utf-8 mode.
 alias t="tmux -u"
 
+# Show a colored pattern in the output.
+alias grep="grep --colour=always"
+
 # Easily grep a proces.
 function psg {
   FIRST=`echo $1 | sed -e "s/^\(.\).*/\1/"`
