@@ -25,7 +25,7 @@ alias wip="c --profile wip"
 alias specdoc="time rspec -fd"
 
 # Restart Passenger.
-alias rr="touch tmp/restart.txt"
+alias rr="mkdir -p tmp && touch tmp/restart.txt"
 
 # I hate having to type bundle exec.
 alias be="bundle exec"
