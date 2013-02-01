@@ -1,17 +1,16 @@
 # Add some easy shortcuts to Git.
 alias st='git status'
-alias status='git status'
 
 alias co='git checkout'
-alias checkout='git checkout'
 
-alias ci='git commit'
-alias commit='git commit'
+alias c='git commit'
+alias ca='git commit --amend'
+alias cm='git commit --message'
 
 alias up='git pull --ff-only'
+alias upstash='git stash && git pull --ff-only && git stash pop'
 
 alias br='git branch'
-alias branch='git branch'
 
 alias lg='git log -p'
 alias ll='git l'
@@ -24,12 +23,9 @@ alias df='git diff'
 alias dc='git diff --cached'
 
 alias f='git fetch'
-alias fetch='git fetch'
 alias gf='git fetch && git status'
 
 alias cdb='base=$(git rev-parse --show-cdup) && cd $base'
-
-alias push='git push'
 
 unstage() {
   git reset HEAD -- $*
