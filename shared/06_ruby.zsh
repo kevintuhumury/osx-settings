@@ -9,10 +9,10 @@ alias r="./script/rails"
 alias b="gem install bundler && bundle install"
 
 # Run rake db:migrate and fill the test database.
-alias rdm="rake db:migrate db:test:prepare"
+alias rdm="bundle exec rake db:migrate db:test:prepare"
 
 # Run rake db:seed to fill the database.
-alias rds="rake db:seed"
+alias rds="bundle exec rake db:seed"
 
 # Show me the coverage reports.
 alias cov="open coverage/index.html"
