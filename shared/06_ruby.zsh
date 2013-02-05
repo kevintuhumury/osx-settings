@@ -18,11 +18,11 @@ alias rds="bundle exec rake db:seed"
 alias cov="open coverage/index.html"
 
 # Cucumber shortcuts (Rake is slow).
-alias c="cucumber -r features"
+alias c="cucumber --require features"
 alias wip="c --profile wip"
 
 # Time RSpec and use document format.
-alias specdoc="time rspec -fd"
+alias specdoc="time rspec --format documentation"
 
 # Restart Passenger.
 alias rr="mkdir -p tmp && touch tmp/restart.txt"
