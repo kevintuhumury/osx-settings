@@ -1,7 +1,7 @@
 # Retrieve the Rails version of the current directory.
 function rails_version {
-  rails=$(rails --version | grep '^Rails [0-9]' | sed -E 's/Rails (.*)/(v\1)/g')
+  current_version=$(rails --version | sed -E 's/Rails (.*)/v\1/g')
   if [ $? ]; then
-    echo "$gray$rails$reset"
+    echo "$gray$current_version$reset"
   fi
 }
