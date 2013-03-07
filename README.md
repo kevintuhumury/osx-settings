@@ -41,7 +41,7 @@ This will also update all of the Vim plugins (through Pathogen). If you've custo
 
 ### Project aliases
 
-This scripts adds aliases for your project directories, but you'll have to tell it where your projects can be found.
+This script adds aliases for your project directories, but you'll have to tell it where your projects can be found.
 
 Depending on which shell you use, create `bash/98_project_dirs.sh` or `zsh/98_project_dirs.zsh`.
 
