@@ -16,6 +16,7 @@ alias rds="bundle exec rake db:seed"
 
 # Show me the coverage reports.
 alias cov="open coverage/index.html"
+alias rcov="open coverage/rcov/index.html"
 
 # Cucumber shortcuts (Rake is slow).
 alias c="cucumber --require features"
