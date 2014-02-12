@@ -1,3 +1,9 @@
+unstage() {
+  git reset HEAD -- $*
+  echo
+  git status
+}
+
 function github-init () {
   git config branch.$(git-branch-name).remote origin
   git config branch.$(git-branch-name).merge refs/heads/$(git-branch-name)

@@ -26,9 +26,3 @@ alias f='git fetch'
 alias gf='git fetch && git status'
 
 alias cdb='base=$(git rev-parse --show-cdup) && cd $base'
-
-unstage() {
-  git reset HEAD -- $*
-  echo
-  git status
-}
