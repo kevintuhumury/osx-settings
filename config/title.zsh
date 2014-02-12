@@ -12,7 +12,7 @@ case $TERM in (*xterm*|ansi)
   # Change the tab title to the currently running command (not process).
   preexec() {
     NEWLY_OPENED=""
-    print -Pn "\e]0;Running: $1\a"
+    print -Pn "\e]0;♣ $1\a"
   }
 
   # Change the tab title to the result of the last run command (not process).
@@ -22,9 +22,9 @@ case $TERM in (*xterm*|ansi)
     if [ -z $NEWLY_OPENED ]; then
       cmd=`history | tail -n 1 | sed 's/[^0-9]*[0-9]*\ \ //'`
       if [[ $success != 0 ]]; then
-        print -Pn "\e]0;Error: $cmd\a"
+        print -Pn "\e]0;✘ $cmd\a"
       else
-        print -Pn "\e]1;Finished: $cmd\a"
+        print -Pn "\e]1;✔ $cmd\a"
         settitle
       fi
     else
