@@ -26,7 +26,7 @@ Add the following lines to `~/.osx-settings/config/personal.zsh`:
 
 ``` bash
 export GIT_AUTHOR_NAME="Your Name"
-export GIT_AUTHOR_EMAIL="yourname@yourdomain.com"
+export GIT_AUTHOR_EMAIL="your.name@email.com"
 
 export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
 export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
@@ -48,7 +48,7 @@ This will also update all of the Vim plugins (through Pathogen). If you've custo
 
 This script adds aliases for your project directories, but you'll have to tell it where your projects can be found.
 
-So edit `.osx-settings/config/personal.zsh`, which you've already created earlier for your Git settings above. Add something like:
+Edit `.osx-settings/config/personal.zsh`, which you've already created earlier for your Git settings above. Add something like:
 
     PROJECT_PARENT_DIRS+=("$HOME/code")
 
