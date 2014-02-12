@@ -14,6 +14,9 @@ source ~/.osx-settings/config/title.zsh
 
 PROJECT_PARENT_DIRS=()
 
+if [[ -f ~/.osx-settings/config/personal.zsh ]]; then
+  source ~/.osx-settings/config/personal.zsh
+fi
 
 for PARENT_DIR in ${PROJECT_PARENT_DIRS[@]} ; do
   if [ -d "$PARENT_DIR" ]; then
