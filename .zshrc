@@ -3,7 +3,7 @@ export LC_ALL=en_US.UTF-8
 export SHELL=$(which zsh)
 
 PROJECT_PARENT_DIRS=()
-source ~/.osx-settings/zsh/rc
+source ~/.osx-settings/config/zsh/rc
 
 export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:/usr/local/sbin
