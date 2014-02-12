@@ -25,6 +25,7 @@ alias irb="pry"
 # Git aliases
 alias cdb='base=$(git rev-parse --show-cdup) && cd $base'
 alias upstash='git stash && git pull --ff-only && git stash pop'
+alias author='git commit --amend --author "$GIT_COMMITTER_NAME <$GIT_COMMITTER_EMAIL>"'
 alias st='git status'
 alias co='git checkout'
 alias ci='git commit'
