@@ -1,26 +1,24 @@
 #!/bin/sh
 set -e
 
-mydir=`pwd`
+current=`pwd`
 backup="$HOME/.osx-settings-backup-`date +%s`"
 
 # install submodules
 ./script/update-submodules
 
 # backup and create symlinks
-for f in $mydir/.*; do
-
+for f in `ls $current/rc/`; do
   file=`basename $f`
-  dest="$HOME/$file"
-  source="$mydir/$file"
+  dest="$HOME/.$file"
+  source="$current/rc/$file"
 
   if [[ -f $dest || -d $dest ]]; then
     mkdir -p $backup
+    echo "Making backup of $dest in $backup"
     cp -R $dest $backup/$file
   fi
 
-  if [[ "$file" != ".gitmodules" && "$file" != ".git" && "$file" != ".gitignore" ]]; then
-    echo "Symlinking: $file"
-    ln -fs $source $dest
-  fi
+  echo "Symlinking: .$file"
+  ln -fs $source $dest
 done
