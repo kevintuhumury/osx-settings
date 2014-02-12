@@ -16,16 +16,21 @@ Run the following to install the OSX settings:
 
     git clone git://github.com/kevintuhumury/osx-settings.git ~/.osx-settings
     cd ~/.osx-settings
-    ./install
+    ./script/install
 
 The installation will create a backup of a previous version and symlinks the available dot files.
 
 ### Configure Git
 
-Run the following to configure Git:
+Add and change these lines to `~/.osx-settings/config/personal.zsh`:
 
-    git config --global user.name "Your Name"
-    git config --global user.email you@example.com
+``` bash
+export GIT_AUTHOR_NAME="Your Name"
+export GIT_AUTHOR_EMAIL="yourname@yourdomain.com"
+
+export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+```
 
 ## Upgrading
 
@@ -43,7 +48,7 @@ This will also update all of the Vim plugins (through Pathogen). If you've custo
 
 This script adds aliases for your project directories, but you'll have to tell it where your projects can be found.
 
-You'll need to use zsh, so when you're not using it already, first switch to that. Now edit `.zshrc` and add something like:
+You'll need to use zsh, so when you're not using it already, first switch to that. Now edit `.osx-settings/config/personal.zsh` you've already created earlier for your Git settings and add something like:
 
     PROJECT_PARENT_DIRS+=("$HOME/code")
 
@@ -64,16 +69,10 @@ If you have trouble reading the colors, enable `Use bright colors for bold text`
 Here's what I install on a clean OSX:
 
 ```
-brew install ack imagemagick readline wget libyaml mysql zsh node sqlite memcached postgresql tree elasticsearch
+brew install ack imagemagick readline wget libyaml mysql zsh node sqlite memcached postgresql tree
 ```
 
 Make sure to read the caveats of those packages to make them start up automatically when that makes sense.
-
-### Hitch
-
-I use [Hitch](https://github.com/therubymug/hitch) for Pair Programming and also use RVM. So, after installing the rubies I want, I run:
-
-    for x in $(rvm list strings); do rvm use $x@global && gem install hitch && gem install bundler; done
 
 ## Credits
 
