@@ -34,13 +34,6 @@ alias t="tmux -u"
 # Show a colored pattern in the output.
 alias grep="grep --colour=always"
 
-# Easily grep a proces.
-function psg {
-  FIRST=`echo $1 | sed -e "s/^\(.\).*/\1/"`
-  REST=`echo $1 | sed -e "s/^.\(.*\)/\1/"`
-  ps aux | grep "[$FIRST]$REST"
-}
-
 # Hosts will open your hosts file, for easy access
 if [ "`id -u`" -eq 0 ]; then
   alias hosts="mvim /etc/hosts"
