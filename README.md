@@ -22,7 +22,7 @@ The installation will create a backup of a previous version and symlinks the ava
 
 ### Configure Git
 
-Add and change these lines to `~/.osx-settings/config/personal.zsh`:
+Add the following lines to `~/.osx-settings/config/personal.zsh`:
 
 ``` bash
 export GIT_AUTHOR_NAME="Your Name"
@@ -48,7 +48,7 @@ This will also update all of the Vim plugins (through Pathogen). If you've custo
 
 This script adds aliases for your project directories, but you'll have to tell it where your projects can be found.
 
-You'll need to use zsh, so when you're not using it already, first switch to that. Now edit `.osx-settings/config/personal.zsh` you've already created earlier for your Git settings and add something like:
+So edit `.osx-settings/config/personal.zsh`, which you've already created earlier for your Git settings above. Add something like:
 
     PROJECT_PARENT_DIRS+=("$HOME/code")
 
