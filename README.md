@@ -26,7 +26,7 @@ Git uses your name and email for each commit. You can run the following commands
 
 ``` bash
 git config --global user.name "John Doe"
-git config --global user.email john.doe@example.com
+git config --global user.email "john.doe@example.com"
 ```
 
 When you've got both personal and work related repositories on your host (like I do), you can use the aliases `home_config` and `work_config` (they're defined in `.osx-settings/config/aliases.zsh`) to set the corresponding email into your local git config of the current repository. These will only work when you set the environment variables below in `.osx-settings/config/personal.zsh`:
