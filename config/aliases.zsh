@@ -25,7 +25,6 @@ alias irb="pry"
 # Git aliases
 alias cdb='base=$(git rev-parse --show-cdup) && cd $base'
 alias upstash='git stash && git pull --ff-only && git stash pop'
-alias author='git commit --amend --author "$GIT_COMMITTER_NAME <$GIT_COMMITTER_EMAIL>"'
 alias st='git status'
 alias co='git checkout'
 alias ci='git commit'
@@ -41,6 +40,10 @@ alias d='git diff'
 alias dc='git diff --cached'
 alias f='git fetch'
 alias gf='git fetch && git status'
+alias home_config='git config user.email "$HOME_AUTHOR_EMAIL"'
+alias work_config='git config user.email "$WORK_AUTHOR_EMAIL"'
+alias home_author='name=$(git config user.name) && git commit --amend --author "$name <$HOME_AUTHOR_EMAIL>"'
+alias work_author='name=$(git config user.name) && git commit --amend --author "$name <$WORK_AUTHOR_EMAIL>"'
 
 # Need to do this (for some reason) so you can use backspace in screen.
 alias screen="TERM=screen screen"
