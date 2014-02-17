@@ -22,14 +22,18 @@ The installation will create a backup of a previous version and symlinks the ava
 
 ### Configure Git
 
-Add the following lines to `~/.osx-settings/config/personal.zsh`:
+Git uses your name and email for each commit. You can run the following commands (with your own name and email of course) to globally set these:
 
 ``` bash
-export GIT_AUTHOR_NAME="Your Name"
-export GIT_AUTHOR_EMAIL="your.name@email.com"
+git config --global user.name "John Doe"
+git config --global user.email john.doe@example.com
+```
 
-export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
-export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+When you've got both personal and work related repositories on your host (like I do), you can use the aliases `home_config` and `work_config` (they're defined in `.osx-settings/config/aliases.zsh`) to set the corresponding email into your local git config of the current repository. These will only work when you set the environment variables below in `.osx-settings/config/personal.zsh`:
+
+``` bash
+export HOME_AUTHOR_EMAIL="john.doe@home.com"
+export WORK_AUTHOR_EMAIL="john.doe@work.com"
 ```
 
 ## Upgrading
