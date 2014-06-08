@@ -21,3 +21,8 @@ function psg {
   REST=`echo $1 | sed -e 's/^.\(.*\)/\1/'`
   ps aux | grep "[$FIRST]$REST"
 }
+
+# Delete the ._* files.
+function delete_dot_underscore {
+  `find $1 -name "._*" -delete`
+}
