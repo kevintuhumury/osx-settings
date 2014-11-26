@@ -24,7 +24,6 @@ alias irb="pry"
 
 # Git aliases
 alias cdb='base=$(git rev-parse --show-cdup) && cd $base'
-alias upstash='git stash && git pull --ff-only && git stash pop'
 alias st='git status'
 alias co='git checkout'
 alias ci='git commit'
@@ -40,6 +39,7 @@ alias d='git diff'
 alias dc='git diff --cached'
 alias f='git fetch'
 alias gf='git fetch && git status'
+alias upstash='git stash && git pull --ff-only && git stash pop'
 alias upclean='git checkout master && git pull --ff-only && git remote prune origin && git branch'
 alias home_config='git config user.email "$HOME_AUTHOR_EMAIL"'
 alias work_config='git config user.email "$WORK_AUTHOR_EMAIL"'
