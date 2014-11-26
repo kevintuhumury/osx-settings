@@ -1,8 +1,19 @@
 # Ruby optimalizations
-export RUBY_HEAP_MIN_SLOTS=1100000
-export RUBY_GC_MALLOC_LIMIT=110000000
-export RUBY_HEAP_FREE_MIN=20000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+function optimize_ruby() {
+  current_version=$(echo $RUBY_VERSION | awk -F'-' '{print $2}')
+
+  export RUBY_GC_MALLOC_LIMIT=110000000
+  export RUBY_HEAP_FREE_MIN=20000
+  export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+
+  if [[ $current_version =~ 2.[1-9].* ]]; then
+    unset RUBY_HEAP_MIN_SLOTS
+    export RUBY_GC_HEAP_INIT_SLOTS=1100000
+  else
+    unset RUBY_GC_HEAP_INIT_SLOTS
+    export RUBY_HEAP_MIN_SLOTS=1100000
+  fi
+}
 
 # Shortcut support for Rails 4.0+
 function r() {
