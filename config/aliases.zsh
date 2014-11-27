@@ -6,7 +6,6 @@ alias lh="ls -Shl | less"
 alias tf="tail -f -n 100"
 alias m="mvim --remote-silent"
 alias dls="cd ~/Downloads"
-alias gitx="open /Applications/GitX.app"
 alias grep="grep --colour=always"
 alias hg="history | grep "
 
