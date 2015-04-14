@@ -6,6 +6,7 @@ source ~/.osx-settings/config/git.zsh
 source ~/.osx-settings/config/ruby.zsh
 source ~/.osx-settings/config/aliases.zsh
 source ~/.osx-settings/config/general.zsh
+source ~/.osx-settings/config/work.zsh
 
 # Define a PROJECT_PARENT_DIRS array as defined below in the following file:
 #  ~/.osx-settings/config/personal.zsh
