@@ -19,7 +19,6 @@ alias wip="c --profile wip"
 alias specdoc="time rspec --format documentation"
 alias cov="open coverage/index.html"
 alias rcov="open coverage/rcov/index.html"
-alias irb="pry"
 
 # Git aliases
 alias cdb='base=$(git rev-parse --show-cdup) && cd $base'
