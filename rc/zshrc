@@ -1,4 +1,3 @@
-source ~/.osx-settings/config/rvm.zsh
 source ~/.osx-settings/config/title.zsh
 source ~/.osx-settings/config/zsh_options.zsh
 source ~/.osx-settings/config/git_autocomplete.zsh

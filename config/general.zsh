@@ -10,9 +10,6 @@ export BUNDLER_EDITOR=$EDITOR
 
 # Paths
 export PATH="/usr/local/bin:$PATH"
-if [[ -d "$HOME/.rvm/bin" ]]; then
-  export PATH=$PATH:$HOME/.rvm/bin
-fi
 export PATH=$PATH:$HOME/.osx-settings/bin
 
 # Grep a process

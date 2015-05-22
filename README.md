@@ -7,7 +7,6 @@ The features included are among others:
 * Colored prompt for both ZSH.
 * Automatic project aliases.
 * Ruby on Rails specific aliases.
-* RVM support.
 * Vim configuration (as a submodule).
 
 ## Installation
