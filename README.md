@@ -41,9 +41,6 @@ To get the latest version:
 
     cd ~/.osx-settings
     git pull origin master
-    ./update-submodules
-
-This will also update all of the Vim plugins (through Pathogen). If you've customized anything, get ready to start your rebase.
 
 ## Customizing
 
