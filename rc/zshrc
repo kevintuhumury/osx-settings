@@ -1,3 +1,4 @@
+source ~/.osx-settings/config/rbenv.zsh
 source ~/.osx-settings/config/title.zsh
 source ~/.osx-settings/config/zsh_options.zsh
 source ~/.osx-settings/config/git_autocomplete.zsh
@@ -29,3 +30,7 @@ for PARENT_DIR in ${PROJECT_PARENT_DIRS[@]} ; do
     done
   fi
 done
+
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)";
+fi
