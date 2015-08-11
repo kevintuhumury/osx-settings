@@ -7,7 +7,6 @@ The features included are among others:
 * Colored prompt for both ZSH.
 * Automatic project aliases.
 * Ruby on Rails specific aliases.
-* Support for rbenv.
 * Vim configuration (as a submodule).
 
 ## Installation
@@ -70,7 +69,7 @@ If you have trouble reading the colors, enable `Use bright colors for bold text`
 Here's what I install on a clean OSX:
 
 ```
-brew install ack imagemagick readline wget libyaml mysql zsh node sqlite memcached postgresql tree rbenv ruby-build rbenv-gem-rehash
+brew install ack imagemagick readline wget libyaml mysql zsh node sqlite memcached postgresql tree
 ```
 
 Make sure to read the caveats of those packages to make them start up automatically when that makes sense.
