@@ -4,9 +4,6 @@ set -e
 current=`pwd`
 backup="$HOME/.osx-settings-backup-`date +%s`"
 
-# install submodules
-./script/update-submodules
-
 # backup and create symlinks
 for f in `ls $current/rc/`; do
   file=`basename $f`
