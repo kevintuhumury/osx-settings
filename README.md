@@ -17,7 +17,7 @@ Run the following to install the OSX settings:
     cd ~/.osx-settings
     ./script/install
 
-The installation will create a backup of a previous version and symlinks the available dot files.
+The installation will create a backup of a previous version and symlinks the available dot files and git hooks.
 
 ### Configure Git
 
