@@ -1,8 +1,5 @@
 # General aliases
 alias l="ls -halo"
-alias ltr="ls -lt"
-alias lth="l -t|head"
-alias lh="ls -Shl | less"
 alias tf="tail -f -n 100"
 alias m="mvim --remote-silent"
 alias dls="cd ~/Downloads"
@@ -14,19 +11,17 @@ alias be="bundle exec"
 alias rdm="bundle exec rake db:migrate db:test:prepare"
 alias rds="bundle exec rake db:seed"
 alias rr="mkdir -p tmp && touch tmp/restart.txt"
-alias c="cucumber --require features"
-alias wip="c --profile wip"
-alias specdoc="time rspec --format documentation"
 alias cov="open coverage/index.html"
 alias rcov="open coverage/rcov/index.html"
 
 # Git aliases
 alias cdb='base=$(git rev-parse --show-cdup) && cd $base'
+alias g='git'
+alias c='git commit'
+alias p='git push'
 alias st='git status'
 alias co='git checkout'
-alias ci='git commit'
 alias ca='git commit --amend'
-alias cm='git commit --message'
 alias up='git pull --ff-only'
 alias br='git branch'
 alias lg='git log -p'
@@ -37,8 +32,8 @@ alias d='git diff'
 alias dc='git diff --cached'
 alias f='git fetch'
 alias gf='git fetch && git status'
-alias upstash='git stash && git pull --ff-only && git stash pop'
-alias upclean='git checkout master && git pull --ff-only && git remote prune origin && git branch'
+alias upstash='git stash && up && git stash pop'
+alias upclean='git checkout master && up && git remote prune origin && git branch'
 alias home_config='git config user.email "$HOME_AUTHOR_EMAIL"'
 alias work_config='git config user.email "$WORK_AUTHOR_EMAIL"'
 alias home_author='name=$(git config user.name) && git commit --amend --author "$name <$HOME_AUTHOR_EMAIL>"'
