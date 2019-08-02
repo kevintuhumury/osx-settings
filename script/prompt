@@ -10,6 +10,14 @@ function finish {
   echo $result
 }
 
+function exit_code_color {
+  if [[ $exit_status == 0 ]]; then
+    append $blue
+  else
+    append $red
+  fi
+}
+
 function prompt_type {
   status=$(git status 2> /dev/null)
   if [[ $? == 0 ]]; then
@@ -19,32 +27,35 @@ function prompt_type {
   fi
 }
 
-function append {
-  result=$result$1
-}
-
 function space {
   result="$result "
 }
 
-function exit_code_color {
-  if [[ $exit_status == 0 ]]; then
-    append $blue
-  else
-    append $red
-  fi
+function append {
+  result=$result$1
 }
 
-function minutes_since_last_commit {
-  now=`date +%s`
-  last_commit=`git log --pretty=format:'%at' -1 2>/dev/null`
-  if $lastcommit ; then
-    seconds_since_last_commit=$((now-last_commit))
-    minutes_since_last_commit=$((seconds_since_last_commit/60))
-    echo $minutes_since_last_commit
+function basedir {
+  if [ -n "$basedir" ]; then
+    dir=$(cd $basedir; pwd)
   else
-    echo "-1"
+    dir=$PWD
   fi
+  append $(basename $dir)
+}
+
+function config_mode {
+  user_email=$(git config user.email)
+
+  if [[ "$user_email" == "$HOME_AUTHOR_EMAIL" ]]; then
+    current_mode="home"
+  else
+    current_mode="work"
+  fi
+
+  space
+  append $gray
+  append $current_mode
 }
 
 function time_since_last_commit {
@@ -74,41 +85,15 @@ function time_since_last_commit {
   fi
 }
 
-function branch_or_commit {
-  branch=$(git branch | grep '^\*' | sed 's/^\*\ //')
-  if [ "$branch" == "(no branch)" ]; then
-    # when not on any branch, always color red
-    echo "$red$(git rev-list -n 1 --abbrev-commit HEAD)"
-  elif [ "$branch" == "" ]; then
-    # you are not on any branch or commit
-    echo "$red???"
+function minutes_since_last_commit {
+  now=`date +%s`
+  last_commit=`git log --pretty=format:'%at' -1 2>/dev/null`
+  if $lastcommit ; then
+    seconds_since_last_commit=$((now-last_commit))
+    minutes_since_last_commit=$((seconds_since_last_commit/60))
+    echo $minutes_since_last_commit
   else
-    echo $branch
-  fi
-}
-
-function git_prompt {
-  branch=$(branch_or_commit)
-  subdir=$(git rev-parse --show-prefix)
-  basedir=$(git rev-parse --show-cdup)
-  basedir
-  time_since_last_commit
-  branch
-  in_rebase
-  merge
-  subdir
-}
-
-function in_rebase {
-  if [ -n "$basedir" ]; then
-    dir=$basedir
-  else
-    dir='.'
-  fi
-  if [[ -d $dir/.git/rebase-apply ]]; then
-    space
-    append $yellow
-    append "rebasing!"
+    echo "-1"
   fi
 }
 
@@ -122,33 +107,30 @@ function branch {
   append $branch
 }
 
-function normal_prompt {
-  append "${PWD/$HOME/~}"
-}
-
-function clean {
-  echo $status | grep "nothing to commit, working tree clean" > /dev/null
-}
-
-function ahead {
-  echo $status | grep 'Your branch is ahead' > /dev/null
-}
-
-function diverged {
-  echo $status | grep 'have diverged' > /dev/null
-}
-
-function behind {
-  echo $status | grep 'Your branch is behind' > /dev/null
-}
-
-function basedir {
-  if [ -n "$basedir" ]; then
-    dir=$(cd $basedir; pwd)
+function branch_or_commit {
+  branch=$(git branch | grep '^\*' | sed 's/^\*\ //')
+  if [ "$branch" == "(no branch)" ]; then
+    # when not on any branch, always color red
+    echo "$red$(git rev-list -n 1 --abbrev-commit HEAD)"
+  elif [ "$branch" == "" ]; then
+    # you are not on any branch or commit
+    echo "$red???"
   else
-    dir=$PWD
+    echo $branch
   fi
-  append $(basename $dir)
+}
+
+function in_rebase {
+  if [ -n "$basedir" ]; then
+    dir=$basedir
+  else
+    dir='.'
+  fi
+  if [[ -d $dir/.git/rebase-apply ]]; then
+    space
+    append $yellow
+    append "rebasing!"
+  fi
 }
 
 function merge {
@@ -169,6 +151,39 @@ function subdir {
   space
   append $cyan
   append "/${subdir%/}"
+}
+
+function git_prompt {
+  branch=$(branch_or_commit)
+  subdir=$(git rev-parse --show-prefix)
+  basedir=$(git rev-parse --show-cdup)
+  basedir
+  time_since_last_commit
+  branch
+  in_rebase
+  merge
+  config_mode
+  subdir
+}
+
+function normal_prompt {
+  append "${PWD/$HOME/~}"
+}
+
+function clean {
+  echo $status | grep "nothing to commit, working tree clean" > /dev/null
+}
+
+function ahead {
+  echo $status | grep 'Your branch is ahead' > /dev/null
+}
+
+function diverged {
+  echo $status | grep 'have diverged' > /dev/null
+}
+
+function behind {
+  echo $status | grep 'Your branch is behind' > /dev/null
 }
 
 finish
