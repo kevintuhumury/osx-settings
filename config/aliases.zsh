@@ -1,37 +1,23 @@
 # General aliases
 alias l="ls -halo"
-alias tf="tail -f -n 100"
 alias m="mvim --remote-silent"
 alias dls="cd ~/Downloads"
 alias grep="grep --colour=always"
-alias hg="history | grep "
 
 # Ruby (Rails) aliases
 alias be="bundle exec"
-alias rdm="bundle exec rake db:migrate db:test:prepare"
-alias rds="bundle exec rake db:seed"
-alias rr="mkdir -p tmp && touch tmp/restart.txt"
-alias cov="open coverage/index.html"
-alias rcov="open coverage/rcov/index.html"
 
 # Git aliases
 alias cdb='base=$(git rev-parse --show-cdup) && cd $base'
 alias g='git'
-alias c='git commit'
-alias p='git push'
 alias st='git status'
 alias co='git checkout'
-alias ca='git commit --amend'
 alias up='git pull --ff-only'
 alias br='git branch'
-alias lg='git log -p'
 alias ll='git l'
-alias la='git la'
 alias aa='git add --all'
 alias d='git diff'
 alias dc='git diff --cached'
-alias f='git fetch'
-alias gf='git fetch && git status'
 alias upstash='git stash && up && git stash pop'
 alias upclean='git checkout master && up && git remote prune origin && git branch'
 alias home_config='git config user.email "$HOME_AUTHOR_EMAIL"'

@@ -10,26 +10,4 @@ export BUNDLER_EDITOR=$EDITOR
 
 # Paths
 export PATH="/usr/local/bin:$PATH"
-if [[ -d "$HOME/.rvm/bin" ]]; then
-  export PATH=$PATH:$HOME/.rvm/bin
-fi
 export PATH=$PATH:$HOME/.osx-settings/bin
-
-# Grep a process
-function psg {
-  FIRST=`echo $1 | sed -e 's/^\(.\).*/\1/'`
-  REST=`echo $1 | sed -e 's/^.\(.*\)/\1/'`
-  ps aux | grep "[$FIRST]$REST"
-}
-
-# Delete the ._* files.
-function delete_dot_underscore {
-  `find $1 -name "._*" -delete`
-}
-
-# Quickly change directory and open the specified XCode workspace from anywhere.
-function wo {
-  file=$1.xcworkspace
-  cd $(dirname $(find ~/Code -name $file))
-  open $file
-}

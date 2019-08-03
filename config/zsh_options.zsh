@@ -52,24 +52,3 @@ zmodload -a zsh/zprof zprof
 
 # Module which adds access to external files.
 zmodload -ap zsh/mapfile mapfile
-
-# Easily add arguments or flags, see: http://chneukirchen.org/blog/archive/2011/02/10-more-zsh-tricks-you-may-not-know.html
-after-first-word() {
-  zle beginning-of-line
-  zle forward-word
-}
-zle -N after-first-word
-bindkey "^X1" after-first-word
-
-# Adds completion.
-zstyle ":completion:*" list-colors ${(s.:.)LS_COLORS}
-zstyle ":completion:*:*:kill:*:processes" list-colors "=(#b) #([0-9]#)*=0=00;31"
-zstyle -e ":completion:*:approximate:*" max-errors "reply=( $(( ($#PREFIX+$#SUFFIX)/2 )) numeric )"
-zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
-
-# Adds completion in history with M-/, M-,. See: http://chneukirchen.org/blog/archive/2011/02/10-more-zsh-tricks-you-may-not-know.html
-zstyle ":completion:history-words:*" list no
-zstyle ":completion:history-words:*" menu yes
-zstyle ":completion:history-words:*" remove-all-dups yes
-bindkey "\e/" _history-complete-older
-bindkey "\e," _history-complete-newer

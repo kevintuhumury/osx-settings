@@ -1,12 +1,8 @@
-source ~/.osx-settings/config/rvm.zsh
 source ~/.osx-settings/config/title.zsh
 source ~/.osx-settings/config/zsh_options.zsh
-source ~/.osx-settings/config/git_autocomplete.zsh
-source ~/.osx-settings/config/git.zsh
-source ~/.osx-settings/config/ruby.zsh
 source ~/.osx-settings/config/aliases.zsh
 source ~/.osx-settings/config/general.zsh
-source ~/.osx-settings/config/work.zsh
+source ~/.osx-settings/config/functions.zsh
 
 # Define a PROJECT_PARENT_DIRS array as defined below in the following file:
 #  ~/.osx-settings/config/personal.zsh
@@ -17,6 +13,10 @@ PROJECT_PARENT_DIRS=()
 
 if [[ -f ~/.osx-settings/config/personal.zsh ]]; then
   source ~/.osx-settings/config/personal.zsh
+fi
+
+if [[ -f ~/.osx-settings/config/work.zsh ]]; then
+  source ~/.osx-settings/config/work.zsh
 fi
 
 for PARENT_DIR in ${PROJECT_PARENT_DIRS[@]} ; do
