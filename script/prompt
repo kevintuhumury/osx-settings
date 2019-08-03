@@ -48,9 +48,11 @@ function config_mode {
   user_email=$(git config user.email)
 
   if [[ "$user_email" == "$HOME_AUTHOR_EMAIL" ]]; then
-    current_mode="home"
+    current_mode='home'
+  elif [[ "$user_email" == "$WORK_AUTHOR_EMAIL" ]]; then
+    current_mode='work'
   else
-    current_mode="work"
+    current_mode='unknown'
   fi
 
   space
