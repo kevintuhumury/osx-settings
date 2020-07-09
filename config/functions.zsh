@@ -16,3 +16,8 @@ function digitalocean {
   docker-machine env $droplet
   eval $(docker-machine env $droplet)
 }
+
+# Easily set the git upstream.
+function git_upstream {
+  git branch --set-upstream-to=origin/$1 $1
+}
